@@ -8,7 +8,6 @@ type Props = MembersStore.MembersState
   & typeof MembersStore.actionCreators;
 
 interface States {
-  redirect?: string,
   policyNumber: string,
   memberCardNumber: string,
   dateOfBirth: string,
@@ -29,7 +28,6 @@ class MemberSearch extends React.PureComponent<Props, States> {
 
     if (this.state.policyNumber || this.state.dateOfBirth) {
       this.props.requestMembers(this.state.policyNumber, this.state.memberCardNumber, this.state.dateOfBirth);
-      this.setState({ redirect: '/search-results'  });
     } else {
       this.setState({ invalid: 'is-invalid' });
     }
@@ -55,8 +53,8 @@ class MemberSearch extends React.PureComponent<Props, States> {
   }
 
   public render() {
-    if (this.state && this.state.redirect) {
-      return <Redirect to={this.state.redirect} />
+    if (this.props.redirect) {
+      return <Redirect to={this.props.redirect} />
     }
     return (
       <div>
@@ -86,7 +84,7 @@ class MemberSearch extends React.PureComponent<Props, States> {
           </div>
           <div className="form-group">
               <input type="submit" value="Submit" className="btn btn-primary btn-lg" /> 
-              <input type="reset" value="Reset" className="btn btn-outline-primary btn-lg float-right" />
+              <input type="reset" value="Reset" className="btn btn-outline-primary btn-lg float-right" onClick={() => this.setState({ dateOfBirth: '', policyNumber: '', memberCardNumber: '' })} />
           </div>
         </form>
       </div>

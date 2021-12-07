@@ -9,6 +9,7 @@ type Props = MembersStore.MembersState
 
 class SearchResults extends React.PureComponent<Props> {
     public render() {
+        this.props.clearRedirect();
         if (this.props.members.length === 0)
             return (<p>no records found</p>);
 

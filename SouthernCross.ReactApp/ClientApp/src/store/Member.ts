@@ -8,6 +8,7 @@ export interface MembersState {
     policyNumber: string;
     memberCardNumber: string;
     dateOfBirth: string;
+    redirect?: string;
 }
 
 interface RequestMembersActions {
@@ -22,7 +23,11 @@ interface ReceiveMembersActions {
     members: Member[];
 }
 
-type KnownAction = RequestMembersActions | ReceiveMembersActions;
+interface ClearRedirectActions {
+    type: 'CLEAR_REDIRECT';
+}
+
+type KnownAction = RequestMembersActions | ReceiveMembersActions | ClearRedirectActions;
 
 export const actionCreators = {
     requestMembers: (policyNumber: string, memberCardNumber: string, dateOfBirth: string): AppThunkAction<KnownAction> => (dispatch, getState) => {
@@ -43,7 +48,8 @@ export const actionCreators = {
                 });
 
         dispatch({ type: 'REQUEST_MEMBERS', policyNumber: policyNumber, memberCardNumber: memberCardNumber, dateOfBirth: dateOfBirth  });
-    }
+    },
+    clearRedirect:():  AppThunkAction<KnownAction> => (dispatch, getState) => dispatch({ type: 'CLEAR_REDIRECT' })
 }
 
 const unloadedState: MembersState = {
@@ -74,7 +80,17 @@ export const reducer: Reducer<MembersState> = (state: MembersState | undefined, 
                 policyNumber: state.policyNumber,
                 memberCardNumber: state.memberCardNumber,
                 dateOfBirth: state.dateOfBirth,
-                members: action.members
+                members: action.members,
+                redirect: '/search-results'
+            }
+        
+        case 'CLEAR_REDIRECT':
+            return {
+                policyNumber: state.policyNumber,
+                memberCardNumber: state.memberCardNumber,
+                dateOfBirth: state.dateOfBirth,
+                members: state.members,
+                redirect: undefined
             }
     }
 
