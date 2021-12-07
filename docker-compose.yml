@@ -1,0 +1,40 @@
+version: "3"
+services:
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=SouthernX
+      - MONGO_INITDB_ROOT_PASSWORD=S0m3p@ssw0rd
+
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=SouthernX
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=S0m3p@ssw0rd
+      - ME_CONFIG_MONGODB_URL=mongodb://SouthernX:S0m3p%40ssw0rd@mongo:27017/
+
+  frontend-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.WebApi
+    ports:
+      - "5120:5120"
+    environment:
+      ASPNETCORE_URLS: http://+:5120
+      ASPNETCORE_ENVIRONMENT: Development
+      SOUTHERNXDATABASEOPTIONS__CONNECTIONSTRING: mongodb://SouthernX:S0m3p%40ssw0rd@mongo:27017/
+      SOUTHERNXDATABASEOPTIONS__DATABASENAME: SouthernXDb
+    depends_on: ["mongo"]
+  react:
+    build:
+      context: .
+      dockerfile: Dockerfile.ReactApp
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: development
+    depends_on: ["frontend-api"]

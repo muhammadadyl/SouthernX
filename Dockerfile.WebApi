@@ -1,0 +1,19 @@
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine3.10 AS build-env
+ARG Configuration=Release
+WORKDIR /app
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+
+RUN dotnet --info
+
+COPY . ./
+RUN dotnet publish SouthernCross.WebApi -c $Configuration -o ../../out -r alpine-x64
+
+FROM mcr.microsoft.com/dotnet/core/runtime-deps:3.1-alpine3.10
+RUN apk add --no-cache bash libc6-compat
+RUN apk add --no-cache icu-libs
+
+ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+
+WORKDIR /app
+COPY --from=build-env /out ./
+ENTRYPOINT ["./SouthernCross.WebApi"]

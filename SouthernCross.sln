@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouthernCross.WebApi", "SouthernCross.WebApi\SouthernCross.WebApi.csproj", "{4FFD8179-E29F-44E6-A55D-0A0B46C1F781}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouthernCross.ReactApp", "SouthernCross.ReactApp\SouthernCross.ReactApp.csproj", "{02B09290-70DF-4DA7-BCB7-FB5B347B80C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{66DA24D9-7404-4336-97E3-641267277048}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+		Dockerfile.ReactApp = Dockerfile.ReactApp
+		Dockerfile.WebApi = Dockerfile.WebApi
+		MOCK_DATA.json = MOCK_DATA.json
+		SCHS Developer Technical Challenge.pdf = SCHS Developer Technical Challenge.pdf
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouthernCross.Core", "SouthernCross.Core\SouthernCross.Core.csproj", "{46B0301E-53E9-417F-A4F0-86C97964260F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouthernCross.IntegrationTest", "SouthernCross.UnitTest\SouthernCross.IntegrationTest.csproj", "{8F849A08-E6C6-44F6-8629-E1F8F919D705}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FFD8179-E29F-44E6-A55D-0A0B46C1F781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FFD8179-E29F-44E6-A55D-0A0B46C1F781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FFD8179-E29F-44E6-A55D-0A0B46C1F781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FFD8179-E29F-44E6-A55D-0A0B46C1F781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B09290-70DF-4DA7-BCB7-FB5B347B80C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B09290-70DF-4DA7-BCB7-FB5B347B80C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B09290-70DF-4DA7-BCB7-FB5B347B80C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B09290-70DF-4DA7-BCB7-FB5B347B80C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B0301E-53E9-417F-A4F0-86C97964260F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B0301E-53E9-417F-A4F0-86C97964260F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B0301E-53E9-417F-A4F0-86C97964260F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B0301E-53E9-417F-A4F0-86C97964260F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F849A08-E6C6-44F6-8629-E1F8F919D705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F849A08-E6C6-44F6-8629-E1F8F919D705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F849A08-E6C6-44F6-8629-E1F8F919D705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F849A08-E6C6-44F6-8629-E1F8F919D705}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {578D8173-2A9F-43AF-9975-535FF3AAF54A}
+	EndGlobalSection
+EndGlobal

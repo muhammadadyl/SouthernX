@@ -1,0 +1,20 @@
+# base image
+FROM node:17.2.0-alpine
+
+# set working directory
+WORKDIR /usr/src/app
+
+# add `/usr/src/app/node_modules/.bin` to $PATH
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
+# install and cache app dependencies
+COPY SouthernCross.ReactApp/ClientApp/package*.json ./
+RUN npm install
+RUN npm install react-scripts@3.2.0 -g
+
+COPY SouthernCross.ReactApp/ClientApp/ ./
+
+# start app
+CMD ["npm", "start"]
