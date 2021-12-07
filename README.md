@@ -11,7 +11,7 @@ Since application had a few requirements, I didn't feel breaking backend in more
 
 ## Frontend Architecture
 Frontend Architecture is designed on React and Redux in Typescript using CRA [Create React App](https://github.com/facebookincubator/create-react-app).
-I made few changes in UI, since Service Date was not provided in a Mock_data.json I have converted that into Date of Birth search. you could either search by DOB or by Policy Number. if you using DOB. Policy Number wont show you validation error. but if you keep both fields empty it will show validation error on policy number.
+I made few changes in UI, since Service Date was not provided in a Mock_data.json I have converted that into Date of Birth search. you could either search by DOB or by Policy Number. if you using DOB. Policy Number wont show validation error. but if you keep both fields empty it will show validation error on policy number.
 
 ## MongoDb
 For the database engine I have used mongo, because it's easy to use with json data. 
@@ -21,6 +21,6 @@ For easy setup all projects can be run through `docker-compose`. API also expose
 
 ## Run
 Project can be Run in 2 ways.
-- By running instances of `SouthernCross.WebApi`, and `SouthernCross.React` projects through VS (for Web you can also use `npm start` command through CLI)
+- By running instances of `SouthernCross.WebApi`, and `SouthernCross.React` projects through VS (for React you can also use `npm start` command through CLI)
 - By running `docker-compose build && docker-compose up`
 
